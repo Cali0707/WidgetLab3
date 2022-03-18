@@ -2,7 +2,7 @@ import express, {Request, Response} from 'express';
 import bodyParser from "body-parser";
 const cors = require("cors");
 import mongoose from "mongoose";
-import waterDataRouter from "./routes/waterDataRouter";
+import sensorDataRouter from "./routes/sensorDataRouter";
 
 // Initialize Express app
 const app = express();
@@ -14,6 +14,9 @@ const port = process.env.API_PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+// Add router for requests
+app.use("/sensors", sensorDataRouter)
 
 // Connect to MongoDB
 const {MONGODB_USER, MONGODB_PASSWORD, DB_NAME} = process.env;

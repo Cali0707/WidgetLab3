@@ -1,17 +1,17 @@
-import {IWaterData} from "../types/waterDataType";
+import {ISensorData} from "../types/sensorDataType";
 import {model, Schema} from "mongoose";
 
 const waterDataSchema: Schema = new Schema(
     {
-        sensorId: {
+        deviceId: {
             type: Number,
             required: true
         },
-        dataType: {
-            type: String,
+        photoResistorValue: {
+            type: Number,
             required: true
         },
-        value: {
+        thermistorValue: {
             type: Number,
             required: true
         },
@@ -30,4 +30,4 @@ const waterDataSchema: Schema = new Schema(
     }
 );
 
-export default model<IWaterData>("WaterData", waterDataSchema);
+export default model<ISensorData>("WaterData", waterDataSchema);
