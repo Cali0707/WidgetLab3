@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGODB_USER
+      MONGO_INITDB_ROOT_PASSWORD: $MONGODB_PASSWORD
+      MONGO_INITDB_DATABASE: $DB_NAME
+    volumes:
+      - ./mongo-volume:/data/db
+  backend:
+    build: ./backend
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=$API_NODE_ENV
+      - PORT=$API_PORT
+      - MONGODB_USER=$MONGODB_USER
+      - MONGODB_PASSWORD=$MONGODB_PASSWORD
+      - DB_NAME=$DB_NAME
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+  frontend:
+    build: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+
