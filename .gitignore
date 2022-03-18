@@ -1,9 +1,8 @@
 server/node_modules
 client/node_modules
 node_modules
-client/dist
-server/dist
 .idea/
-client/.env
-server/.env
+backend/dist
+frontend/build
 .env
+mongo-volume
