@@ -4,6 +4,7 @@
   "description": "Repository for Widget Lab 3 server code for team 1078C",
   "main": "index.js",
   "scripts": {
+    "start": "docker start widgetlab3-mongo-1 && concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
