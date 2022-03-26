@@ -6,3 +6,4 @@ backend/dist
 frontend/build
 .env
 mongo-volume
+arduino/secrets.h

@@ -17,8 +17,14 @@ mkdir mongo-volume
 ## Environment Setup
 To build the application, you need to have a proper `.env` file configured in the root directory 
 of this repository. To set this up:
-1. Copy `.env.default` to `.env` This can be done with `cp .env.default .env`.
-2. Replace the placeholder values for `MONGODB_USER` and `MONGODB_PASSWORD` with values of your choosing
+1. Copy `.env.default` to `.env`. This can be done with `cp .env.default .env`.
+2. Replace the placeholder values for `MONGODB_USER` and `MONGODB_PASSWORD` with values of your choosing.
+
+In addition to a `.env` file, you will need a `secrets.h` file in your `arduino` directory which will hold the credentials
+for your local Internet network. To set this up:
+1. Go to the `arduino` directory with `cd arduino`
+2. Copy `secrets.default.h` to `secrets.h`. This can be done with `cp secrets.default.h secrets.h`.
+3. Fill in the string value for `NETWORK_SSID` with the name of your internet network, `NETWORK_PASSWORD` with the password, and `SERVER` with the url for your server (excluding the `https://`).
 ## Runtime Setup
 To run the application, you need to have Docker installed to run MongoDB and the frontend and
 backend applications in containers. To install Docker:

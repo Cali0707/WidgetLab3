@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LineGraph from "./components/LineGraph";
+
+const graphData = [
+    {timestamp: new Date(Date.now() - 200), photoResistorValue: 22, thermistorValue: 19},
+    {timestamp: new Date(Date.now() - 150), photoResistorValue: 17, thermistorValue: 15},
+    {timestamp: new Date(Date.now() - 100), photoResistorValue: 22, thermistorValue: 19},
+    {timestamp: new Date(Date.now() - 50), photoResistorValue: 22, thermistorValue: 19},
+    {timestamp: new Date(Date.now()), photoResistorValue: 22, thermistorValue: 19}
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LineGraph data={graphData} />
     </div>
   );
 }
