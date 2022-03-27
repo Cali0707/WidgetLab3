@@ -11,13 +11,6 @@ interface LineGraphProps {
 }
 
 const LineGraph = ({data}: LineGraphProps) => {
-    // Filter total data set to specific type to display
-    // const filteredData = data.filter(d => types.includes(d.type));
-    // console.table(filteredData)
-    // Make line for each type provided
-    // const lines = types.map(t => <Line type={"monotone"} dataKey={t} />)
-    // console.table(lines)
-
     return (
         <ResponsiveContainer width={"80%"} height={250}>
             <LineChart height={200} data={data}>
@@ -26,11 +19,12 @@ const LineGraph = ({data}: LineGraphProps) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type={"monotone"} dataKey={"thermistorValue"} stroke="#8884d8"/>
-                <Line type={"monotone"} dataKey={"photoResistorValue"} stroke={"#82ca9d"}/>
+                <Line type={"monotone"} dataKey={"thermistorValue"} stroke="#8884d8" name="Temperature"/>
+                <Line type={"monotone"} dataKey={"photoResistorValue"} stroke={"#82ca9d"} name={"Photo Resistor Voltage"}/>
             </LineChart>
         </ResponsiveContainer>
     )
 }
 
+export type { TimeSeriesData };
 export default LineGraph;

@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import LineGraph from "./components/LineGraph";
-
-const graphData = [
-    {timestamp: new Date(Date.now() - 200), photoResistorValue: 22, thermistorValue: 19},
-    {timestamp: new Date(Date.now() - 150), photoResistorValue: 17, thermistorValue: 15},
-    {timestamp: new Date(Date.now() - 100), photoResistorValue: 22, thermistorValue: 19},
-    {timestamp: new Date(Date.now() - 50), photoResistorValue: 22, thermistorValue: 19},
-    {timestamp: new Date(Date.now()), photoResistorValue: 22, thermistorValue: 19}
-]
+import LineGraph, {TimeSeriesData} from "./components/LineGraph";
 
 function App() {
-  return (
-    <div className="App">
-      <LineGraph data={graphData} />
-    </div>
+    const defaultGraphData: TimeSeriesData[] = []
+    const [graphData, setGraphData] = useState(defaultGraphData);
+    useEffect(() => {
+        fetch("/sensors/data")
+            .then(result => result.json())
+            .then(result => {
+                console.table(result.waterDataPoints)
+                setGraphData(result.waterDataPoints)
+            })
+    }, [])
+    return (
+        <div className="App">
+            <LineGraph data={graphData} />
+        </div>
   );
 }
 
