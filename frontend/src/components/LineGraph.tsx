@@ -21,8 +21,8 @@ const LineGraph = ({data}: LineGraphProps) => {
                 <Legend />
                 <Line type={"monotone"} dataKey={"thermistorValue"} stroke="#8884d8" name="Temperature"/>
                 <Line type={"monotone"} dataKey={"photoResistorValue"} stroke={"#82ca9d"} name={"Photo Resistor Voltage"}/>
-                <ReferenceLine y={20} label="Threshold Temperature" stroke="#9d9ad9" strokeDasharray="3 3" />
-                <ReferenceLine y={30} label="Threshold Turbidity" stroke="a4deba" strokeDasharray="3 3" />
+                <ReferenceLine y={1} label="Threshold Temperature" stroke="#9d9ad9" strokeDasharray="3 3" />
+                <ReferenceLine y={3} label="Threshold Turbidity" stroke="a4deba" strokeDasharray="3 3" />
             </LineChart>
         </ResponsiveContainer>
     )
