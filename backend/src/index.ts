@@ -28,10 +28,16 @@ const {MONGODB_USER, MONGODB_PASSWORD, DB_NAME} = process.env;
 // console.log(MONGODB_USER)
 const mongoURI = `mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@${process.env.NODE_ENV === "production" ? "mongo": "localhost"}:27017/?authSource=admin`
 // console.log(mongoURI)
-mongoose.connect(mongoURI)
-    .then(() => app.listen(port, () => {
+if (process.env.MODE !== "mock") {
+    mongoose.connect(mongoURI)
+        .then(() => app.listen(port, () => {
+            console.log(`Backend running on http://localhost:${port}`)
+        }))
+        .catch(e => {
+            throw e;
+        })
+} else {
+    app.listen(port, () => {
         console.log(`Backend running on http://localhost:${port}`)
-    }))
-    .catch(e => {
-        throw e;
-    })
+    });
+}

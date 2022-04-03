@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "docker start widgetlab3-mongo-1 && concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\"",
+    "start:frontend-only": "concurrently \"cd backend && MODE=mock yarn dev\" \"cd frontend && yarn start \"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

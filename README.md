@@ -33,3 +33,7 @@ backend applications in containers. To install Docker:
 2. Navigate to the root folder of this repository in your terminal
 3. Run `docker-compose up --build`
 4. You can now access the backend server at http://localhost:5000, and the frontend at http://localhost. Additionally, the backend can be accessed from `http://localhost/api/`
+
+## Frontend Only
+To run just the front end, open the root directory of this repo and run: `yarn start:frontend-only`, and 
+the backend will send mock data for all responses. This does not require you to run MongoDB.
