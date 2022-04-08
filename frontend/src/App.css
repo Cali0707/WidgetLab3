@@ -5,6 +5,12 @@
     align-items: center;
     align-content: center;
 }**/
+@import url(//db.onlinewebfonts.com/c/9c7513c4c5f4197ab2f6968f4d78207b?family=Telex+Regular);
+@import url(//fonts.cdnfonts.com/css/roboto); 
+
+.App {
+  background: #4b68db;
+}
 
 .App-logo {
   height: 40vmin;
@@ -14,9 +20,10 @@
 .header {
   padding: 5px;
   text-align: center;
-  background: #9cd3db;
-  color: white;
+  background: #4b68db;
+  color: #dfb171;
   font-size: 20px;
+  font-family: 'Telex';
 }
 
 .graph {
@@ -28,7 +35,11 @@
 
 .explanation{
   padding: 0 50px;
-    margin-top: -15px;
+  padding-bottom: 10%;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  color: white;
+  font-family: 'Roboto';
 }
 
 .explanation > h3 {
