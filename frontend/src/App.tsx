@@ -23,7 +23,7 @@ function App() {
             </div>
             <div className="explanation">
                 <h3>Data Interpretation</h3>
-                <p>The photoresistor produces light intensity measurements, which can be used as a proxy for turbidity. <br></br>Light intensity values below the threshold suggests that there is high water turbidity and it may not be safe for drinkage.</p>
+                <p>The photoresistor produces light intensity measurements, which can be used as a proxy for turbidity. Light intensity values below the threshold suggests that there is high water turbidity and it may not be safe for drinking.</p>
                 <p>Thermistors measure the water temperature. Temperatures above the threshold value are more likely to have pathogenic bacteria and may not be safe to drink.</p>
             </div>
         </div>
