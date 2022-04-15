@@ -6,7 +6,7 @@ import WaterData from "../models/sensorDataModel";
 // Data must be structured as: {deviceId: number, thermistorValue: number, photoResistorValue: number}
 const addSensorData = async (req: Request, res: Response): Promise<void> => {
     try {
-        const body = req.body as Pick<ISensorData, "deviceId" | "thermistorValue" | "photoResistorValue">
+        const body = req.body as Pick<ISensorData, "deviceId" | "therm" | "photo">
         const sensorData: ISensorData = new WaterData({...body});
         await sensorData.save();
         res.status(200).json({message: "Data saved"});
@@ -20,8 +20,8 @@ const addSensorData = async (req: Request, res: Response): Promise<void> => {
 const getSensorData = async (req: Request, res: Response): Promise<void> => {
     try {
         const sensorDataPoints: ISensorData[] = await WaterData.find({}, '-_id timestamp thermistorValue photoResistorValue')
-        const data = sensorDataPoints.map(({timestamp, thermistorValue, photoResistorValue}) => {
-            return {photoResistorValue: getVoltage(photoResistorValue), thermistorValue: convertToTemp(thermistorValue), timestamp }
+        const data = sensorDataPoints.map(({timestamp, therm, photo}) => {
+            return {photoResistorValue: getVoltage(photo), thermistorValue: convertToTemp(therm), timestamp }
         })
         res.status(200).json({ waterDataPoints: data })
     } catch (e) {

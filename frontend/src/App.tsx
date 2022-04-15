@@ -19,7 +19,9 @@ function App() {
                 <h1>Water Quality Data</h1>
             </div>
             <div className="graph">
-                <LineGraph data={graphData} />
+                <LineGraph data={graphData} label={"Temperature"} dataKey={"thermistorValue"} threshold={20} />
+                <br/>
+                <LineGraph data={graphData} label={"Turbidity"} dataKey={"photoResistorValue"} threshold={5} />
             </div>
             <div className="explanation">
                 <h3>Data Interpretation</h3>

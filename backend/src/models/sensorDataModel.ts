@@ -7,11 +7,11 @@ const waterDataSchema: Schema = new Schema(
             type: Number,
             required: true
         },
-        photoResistorValue: {
+        photo: {
             type: Number,
             required: true
         },
-        thermistorValue: {
+        therm: {
             type: Number,
             required: true
         },
