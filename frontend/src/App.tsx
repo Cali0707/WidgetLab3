@@ -15,7 +15,19 @@ function App() {
     }, [])
     return (
         <div className="App">
-            <LineGraph data={graphData} />
+            <div className="header">
+                <h1>Water Quality Data</h1>
+            </div>
+            <div className="graph">
+                <LineGraph data={graphData} label={"Temperature"} dataKey={"thermistorValue"} threshold={20} />
+                <br/>
+                <LineGraph data={graphData} label={"Turbidity"} dataKey={"photoResistorValue"} threshold={5} />
+            </div>
+            <div className="explanation">
+                <h3>Data Interpretation</h3>
+                <p>The photoresistor produces light intensity measurements, which can be used as a proxy for turbidity. Light intensity values below the threshold suggests that there is high water turbidity and it may not be safe for drinking.</p>
+                <p>Thermistors measure the water temperature. Temperatures above the threshold value are more likely to have pathogenic bacteria and may not be safe to drink.</p>
+            </div>
         </div>
   );
 }

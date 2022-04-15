@@ -1,14 +1,49 @@
-.App {
+/**.App {
   text-align: center;
     margin-top: 100px;
     display: flex;
     align-items: center;
     align-content: center;
+}**/
+@import url(//db.onlinewebfonts.com/c/9c7513c4c5f4197ab2f6968f4d78207b?family=Telex+Regular);
+@import url(//fonts.cdnfonts.com/css/roboto); 
+
+.App {
+  background: #4b68db;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.header {
+  padding: 5px;
+  text-align: center;
+  background: #4b68db;
+  color: #dfb171;
+  font-size: 20px;
+  font-family: 'Telex';
+}
+
+.graph {
+  padding: 30px;
+  margin: 0 auto !important;
+  width: auto;
+    text-align: center;
+}
+
+.explanation{
+  padding: 0 50px;
+  padding-bottom: 10%;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  color: white;
+  font-family: 'Roboto';
+}
+
+.explanation > h3 {
+    text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
